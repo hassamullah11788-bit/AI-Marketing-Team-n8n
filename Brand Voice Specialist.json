@@ -1,0 +1,100 @@
+{
+  "name": "Brand Voice Specialist",
+  "nodes": [
+    {
+      "parameters": {
+        "workflowInputs": {
+          "values": [
+            {
+              "name": "task"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -608,
+        -48
+      ],
+      "id": "ddb32259-f139-4250-b3d0-776cabe96042",
+      "name": "When Executed by Another Workflow"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "= Review this draft campaign content and rewrite anything that's off-tone: {{ $json.task }}. Keep the tone confident, clear, and modern. Return ONLY the final, corrected content ready to publish — organized clearly by section (Website Copy, SEO Blog Post, Email Sequence, Social Media Posts). Do NOT include \"Original,\" \"Rewritten,\" explanations, or commentary about what you changed. Just output the final clean content.",
+        "batching": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.9,
+      "position": [
+        -160,
+        -48
+      ],
+      "id": "500360fa-6c1e-4248-9c39-7027292169a6",
+      "name": "Basic LLM Chain"
+    },
+    {
+      "parameters": {
+        "model": "llama-3.1-8b-instant",
+        "options": {
+          "temperature": 0.3
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
+      "typeVersion": 1,
+      "position": [
+        -240,
+        160
+      ],
+      "id": "8a2cb5ad-2994-40fd-9954-54066978aaf7",
+      "name": "Groq Chat Model",
+      "credentials": {
+        "groqApi": {
+          "id": "00tCPyQbKdOPN088",
+          "name": "Groq account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When Executed by Another Workflow": {
+      "main": [
+        [
+          {
+            "node": "Basic LLM Chain",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Groq Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Basic LLM Chain",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "versionId": "5e5ff346-4d40-4797-b056-b63c452c60e4",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "087b2d3539d20804d4c7932c4b976f96aa8dc160a82589cc8d65412bf4564661"
+  },
+  "nodeGroups": [],
+  "id": "tY1dMoqdgKH9ti87",
+  "tags": []
+}
