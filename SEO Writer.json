@@ -1,0 +1,100 @@
+{
+  "name": "SEO Writer",
+  "nodes": [
+    {
+      "parameters": {
+        "workflowInputs": {
+          "values": [
+            {
+              "name": "task"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -576,
+        -64
+      ],
+      "id": "58d279a6-d975-4052-8792-04d3d7330edf",
+      "name": "When Executed by Another Workflow"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Write a keyword-rich, long-form SEO blog post based on: {{ $json.task }}. Include a title, meta description, and H2 subheadings. Return only the final blog post, no introductions or notes.",
+        "batching": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.9,
+      "position": [
+        -256,
+        -64
+      ],
+      "id": "f2b368dc-1de0-48be-89a8-b9cab93f805f",
+      "name": "Basic LLM Chain"
+    },
+    {
+      "parameters": {
+        "model": "llama-3.1-8b-instant",
+        "options": {
+          "temperature": 0.3
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
+      "typeVersion": 1,
+      "position": [
+        -240,
+        160
+      ],
+      "id": "2d2c507a-49d2-44aa-899f-ded5fce86820",
+      "name": "Groq Chat Model",
+      "credentials": {
+        "groqApi": {
+          "id": "00tCPyQbKdOPN088",
+          "name": "Groq account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When Executed by Another Workflow": {
+      "main": [
+        [
+          {
+            "node": "Basic LLM Chain",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Groq Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Basic LLM Chain",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "versionId": "d6af166d-bfca-4d0a-a386-23fdad990797",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "087b2d3539d20804d4c7932c4b976f96aa8dc160a82589cc8d65412bf4564661"
+  },
+  "nodeGroups": [],
+  "id": "dDcEgJPY6SoOmHbH",
+  "tags": []
+}

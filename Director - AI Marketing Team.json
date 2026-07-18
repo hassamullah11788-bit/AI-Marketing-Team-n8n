@@ -1,0 +1,372 @@
+{
+  "name": "Director - AI Marketing Team",
+  "nodes": [
+    {
+      "parameters": {
+        "updates": [
+          "message"
+        ],
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegramTrigger",
+      "typeVersion": 1.3,
+      "position": [
+        -1104,
+        -704
+      ],
+      "id": "f90bbd6d-ffb7-46ad-ad93-ee874df158f7",
+      "name": "Telegram Trigger",
+      "webhookId": "e7a6f2bf-6de2-4fc8-9994-1175b379c5cd",
+      "credentials": {
+        "telegramApi": {
+          "id": "HHe9awAjzKSTwxoG",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "zsrNCrDV6diKb5Nw",
+          "mode": "list",
+          "cachedResultUrl": "/workflow/zsrNCrDV6diKb5Nw",
+          "cachedResultName": "Copywriter"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "task": "=={{ $('Telegram Trigger').item.json.message.text }}"
+          },
+          "matchingColumns": [
+            "task"
+          ],
+          "schema": [
+            {
+              "id": "task",
+              "displayName": "task",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.3,
+      "position": [
+        -864,
+        -704
+      ],
+      "id": "a9fd4c74-e294-405b-b33f-dd8000b7c108",
+      "name": "Call 'Copywriter'1"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "dDcEgJPY6SoOmHbH",
+          "mode": "list",
+          "cachedResultUrl": "/workflow/dDcEgJPY6SoOmHbH",
+          "cachedResultName": "SEO Writer"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "task": "=={{ $('Telegram Trigger').item.json.message.text }}"
+          },
+          "matchingColumns": [
+            "task"
+          ],
+          "schema": [
+            {
+              "id": "task",
+              "displayName": "task",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.3,
+      "position": [
+        -608,
+        -704
+      ],
+      "id": "63443b10-c761-48dc-b418-776a59dba3f2",
+      "name": "Call 'SEO Writer'"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "9js2KtXCSlSVJmuL",
+          "mode": "list",
+          "cachedResultUrl": "/workflow/9js2KtXCSlSVJmuL",
+          "cachedResultName": "Email Specialist"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "task": "=={{ $('Telegram Trigger').item.json.message.text }}"
+          },
+          "matchingColumns": [
+            "task"
+          ],
+          "schema": [
+            {
+              "id": "task",
+              "displayName": "task",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.3,
+      "position": [
+        -352,
+        -704
+      ],
+      "id": "1f4421ac-d1b8-4a30-9448-77737c9cadb6",
+      "name": "Call 'Email Specialist'"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "fiX2nKkIc0yGncdc",
+          "mode": "list",
+          "cachedResultUrl": "/workflow/fiX2nKkIc0yGncdc",
+          "cachedResultName": "Social Media Manager"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "task": "=={{ $('Telegram Trigger').item.json.message.text }}"
+          },
+          "matchingColumns": [
+            "task"
+          ],
+          "schema": [
+            {
+              "id": "task",
+              "displayName": "task",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.3,
+      "position": [
+        -1104,
+        -416
+      ],
+      "id": "58440873-4779-4e6b-afca-1c1a6403130f",
+      "name": "Call 'Social Media Manager'"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "tY1dMoqdgKH9ti87",
+          "mode": "list",
+          "cachedResultUrl": "/workflow/tY1dMoqdgKH9ti87",
+          "cachedResultName": "Brand Voice Specialist"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "task": "=={{ $('Telegram Trigger').item.json.message.text }}"
+          },
+          "matchingColumns": [
+            "task"
+          ],
+          "schema": [
+            {
+              "id": "task",
+              "displayName": "task",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.3,
+      "position": [
+        -880,
+        -416
+      ],
+      "id": "2c51a72d-9d1f-4896-a3a3-7f5b890d2745",
+      "name": "Call 'Brand Voice Specialist'"
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $('Telegram Trigger').item.json.message.chat.id }}",
+        "text": "={{ $json.text }}",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        -352,
+        -416
+      ],
+      "id": "282cc0ad-ee6d-48ed-9566-bd000af5f967",
+      "name": "Send a text message",
+      "webhookId": "99a1007f-7a56-482d-a9ba-aca9b58551f6",
+      "credentials": {
+        "telegramApi": {
+          "id": "HHe9awAjzKSTwxoG",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const text = $input.first().json.text;\n   const chunkSize = 3800;\n   const chunks = [];\n   for (let i = 0; i < text.length; i += chunkSize) {\n     chunks.push({ text: text.slice(i, i + chunkSize) });\n   }\n   return chunks;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -624,
+        -416
+      ],
+      "id": "3c6593c1-0cea-41f3-9f2b-cba252f6b69a",
+      "name": "Code in JavaScript"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Telegram Trigger": {
+      "main": [
+        [
+          {
+            "node": "Call 'Copywriter'1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Call 'Copywriter'1": {
+      "main": [
+        [
+          {
+            "node": "Call 'SEO Writer'",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Call 'SEO Writer'": {
+      "main": [
+        [
+          {
+            "node": "Call 'Email Specialist'",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Call 'Email Specialist'": {
+      "main": [
+        [
+          {
+            "node": "Call 'Social Media Manager'",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Call 'Social Media Manager'": {
+      "main": [
+        [
+          {
+            "node": "Call 'Brand Voice Specialist'",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Call 'Brand Voice Specialist'": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript": {
+      "main": [
+        [
+          {
+            "node": "Send a text message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "versionId": "55ad42dc-6ea7-48ae-b735-cfba0fabbd1c",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "087b2d3539d20804d4c7932c4b976f96aa8dc160a82589cc8d65412bf4564661"
+  },
+  "nodeGroups": [],
+  "id": "ay8m9bcyxAd8wJwV",
+  "tags": []
+}

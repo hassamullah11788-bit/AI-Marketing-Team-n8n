@@ -1,0 +1,100 @@
+{
+  "name": "Copywriter",
+  "nodes": [
+    {
+      "parameters": {
+        "workflowInputs": {
+          "values": [
+            {
+              "name": "task"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -480,
+        -32
+      ],
+      "id": "f3594721-f1aa-44fe-bdf3-89593feee3a4",
+      "name": "When Executed by Another Workflow"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Write website copy, CTAs, and product descriptions for this brief: {{ $json.task }}. Be punchy, benefit-driven, and on-brand. Return only the final copy, no introductions, no explanations.",
+        "batching": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.9,
+      "position": [
+        -128,
+        -64
+      ],
+      "id": "8c820080-7f6f-4c5c-976b-df56a9c4786a",
+      "name": "Basic LLM Chain"
+    },
+    {
+      "parameters": {
+        "model": "llama-3.1-8b-instant",
+        "options": {
+          "temperature": 0.7
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
+      "typeVersion": 1,
+      "position": [
+        -240,
+        160
+      ],
+      "id": "dc1ca088-2e89-4af1-b3c7-c22af4265355",
+      "name": "Groq Chat Model",
+      "credentials": {
+        "groqApi": {
+          "id": "00tCPyQbKdOPN088",
+          "name": "Groq account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When Executed by Another Workflow": {
+      "main": [
+        [
+          {
+            "node": "Basic LLM Chain",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Groq Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Basic LLM Chain",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "versionId": "97ed30f7-1ddf-4d39-8cd7-b632d4bbd6f9",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "087b2d3539d20804d4c7932c4b976f96aa8dc160a82589cc8d65412bf4564661"
+  },
+  "nodeGroups": [],
+  "id": "zsrNCrDV6diKb5Nw",
+  "tags": []
+}
