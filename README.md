@@ -102,8 +102,7 @@ Each specialist's prompt explicitly excludes commentary, meta-narration, and "be
 - **Persistent memory** — replace in-memory session state with a Postgres-backed memory store for cross-session context retention.
 
 
+<img width="602" height="488" alt="image" src="https://github.com/user-attachments/assets/2b94afee-17fd-48b2-9b20-baff1527ca52" />
+<img width="933" height="413" alt="Workflow" src="https://github.com/user-attachments/assets/de3565a9-cd9c-4181-ba7d-cec16b0a58d3" />
 
-https://github.com/user-attachments/assets/98ee3c47-40f3-42a7-b98c-3ba9572f507d
-
----
 
